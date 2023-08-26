@@ -66,13 +66,13 @@ function App() {
 
   return (
     <div className='flex gap-8 justify-center items-center h-screen w-screen'>
-      <div className='w-[300px] h-[500px] overflow-y-auto no-scrollbar shadow-md relative px-7 py-3 rounded-[28px]'>
+      <div className='w-[300px] h-[500px] overflow-hidden shadow-md relative px-7 py-3 rounded-[28px]'>
         <div className='w-[200px] h-[200px] rounded-full absolute -left-20 -top-12 bg-Yellow'></div>
-        <div className='sticky top-0'>
+        <div className='relative z-10'>
           <img src="/image/nike.png" width={50} height={100} alt="Logo" />
           <h1 className='text-Black font-extrabold text-xl py-2'>Our Products</h1>
         </div>
-        <div className='relative'>
+        <div className='h-[400px] relative z-10 overflow-y-auto no-scrollbar'>
           {listProducts.map((item, index) => (
             <div key={index} className='pb-20'>
               <div style={{ backgroundColor: item.color }} className='rounded-[28px] h-72'>
@@ -106,7 +106,7 @@ function App() {
                 </div>
                 <div className='flex-1'>
                   <h2 className='text-xs text-Black font-bold'>{item.name}</h2>
-                  <h3 className='font-bold text-lg py-2 text-Black'>{USDollar.format(item.price)}</h3>
+                  <h3 className='font-bold text-lg py-2 text-Black'>{USDollar.format(item.price * item.quantity)}</h3>
                   <div className='flex justify-between'>
                     <div className='flex gap-4 items-center'>
                       <div className='rounded-full bg-Gray flex justify-center w-7 h-7'>
