@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-import shoes from "./shoes.json"
 import axios from 'axios';
 
 function App() {
@@ -15,7 +14,7 @@ function App() {
 
   // get product
   useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/products")
+    axios.get("https://cart-z6p5.onrender.com/api/v1/products")
       .then((res) => {
         setListProducts(res.data.data)
       })
